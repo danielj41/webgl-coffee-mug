@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <title>About</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/style.css?v=20141014">
+  </head>
+  <body id="about-body">
+
+    <div id="header">
+        <a href="../" id="logo"><img src="../img/home/logo.png" alt="" width="41" height="40"></a>
+        <h1></h1>
+        <div id="main-links">
+            <a href="../" id="logout">Home</a>
+        </div>
+    </div>
+
+    <div id="about-box">
+        <h2>WebGL Coffee Scene</h2>
+        <p class="screenshot">
+            <a href="screenshot.jpg"><img src="screenshot.jpg" width="500" /></a>
+        </p>
+        <p>Daniel Johnson</p>
+        <p>CPE 471 Final Project</p>
+
+        <h3>Overview</h3>
+        <p>My final project is a WebGL scene that is displayed in the background of a simple web user interface. It is intended to explore the possibilities of 3D scenes within web user interfaces. The idea is similar to how some video games have main menus that render a 3D animated scene in the background.</p>
+
+        <p>In particular, this project simulates a coffee shop reservation system with a confirmation page. The background shows a typical coffee shop scene. Clicking confirm or cancel moves the coffee mugs around in the background.</p>
+
+        <h3>Features and Implementation Details</h3>
+        <ul>
+            <li><strong>Cel shading: </strong>Implemented by rounding a fragment's color to the nearest color in a small set of possible colors. The outlines are created by moving all vertices a fixed amount along their normal, shifting them a fixed amount away from the camera, and drawing the resulting fragments in all black.</li>
+            <li><strong>Steam particles: </strong>Steam floats above the coffee mugs</li>
+            <li><strong>Post-processing steam distortion: </strong>The main scene and the steam particles are rendered to two separate textures, and a final fragment shader combines the results of the two. Depending on the amount of steam on a fragment, an offset is added to the fragment drawn for the main scene.</li>
+            <li><strong>Anti-aliasing: </strong>FXAA is applied alongside the distortion effect, to prevent jagged lines caused by the distortion.</li>
+            <li><strong>Boids: </strong>The cubes floating in front of the paintings are following the Boids algorithm described in Lab 9. Floating cubes are a must for complementing modern art paintings in upscale coffee shops.</li>
+            <li><strong>Textures: </strong>The two paintings in the back are examples of rendering textures on faces.</li>
+            <li><strong>Animations: </strong>The coffee mug movements are based on a few simple physics formulas, and collision locations are hardcoded. The wobbling coffee inside each mug is a hierarchal animation.</li>
+            <li><strong>UI: </strong>There are two buttons and the camera can be controlled with the mouse.</li>
+        </ul>
+
+        <h3>References</h3>
+        <ul>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/WebGL/Creating_3D_objects_using_WebGL">MDN: Creating 3D Objects using WebGL</a> used as base code</li>
+            <li><a href="http://sunandblackcat.com/tipFullView.php?l=eng&topicid=15">Sun &amp; Black Cat: Non-photorealistic Rendering (Cel shading)</a> for cel shading techniques</li>
+            <li><a href="http://learningwebgl.com/blog/?p=1786">Learning WebGL: Rendering to Textures</a> used for rendering objects to a texture for use in post-processing effects</li>
+            <li><a href="https://dev.opera.com/articles/webgl-post-processing/">Dev.Opera: Image and Video Post-Processing With WebGL</a> used for the steam distortion effect</li>
+            <li><a href="http://codeflow.org/entries/2013/feb/22/how-to-write-portable-webgl/">Codeflow: How to Write Portable WebGL</a> for info on WebGL anti-aliasing</a></li>
+            <li><a href="http://www.geeks3d.com/20110405/fxaa-fast-approximate-anti-aliasing-demo-glsl-opengl-test-radeon-geforce/3/">Geeks3D: FXAA Demo</a> for info about FXAA</li>
+            <li><a href="https://github.com/mitsuhiko/webgl-meincraft/blob/master/assets/shaders/fxaa.glsl">mitsuhiko's WebGL FXAA Implementation</a> slightly altered for anti-aliasing the distortion post-processing</li>
+        </ul>
+        <p class="screenshot">
+            <img src="screenshot2.jpg" width="300" />
+        </p>
+        <h3>Libraries</h3>
+        <ul>
+            <li><a href="http://sylvester.jcoglan.com/">sylvester</a> and glUtils.js from Mozilla used for matrices and vectors</li>
+            <li>AngularJS for UI</li>
+            <li>jQuery and Underscore.js</li>
+        </ul>
+        <h3>Resources</h3>
+        <ul>
+            <li><a href="http://www.sharecg.com/v/3224/related/5/3D-Model/Coffee-Mug">Coffee Mug 3D Model</a></li>
+        </ul>
+        <div style="clear: both;"></div>
+        
+    </div>
+
+    </div>
+  </body>
+</html>
